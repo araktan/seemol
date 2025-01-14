@@ -1,0 +1,5 @@
+I am doing this not because it's easy, but because I thought it would be easy.
+
+The goal of the project is to make **image recognition** for **molecular structures**: i.e. supply an image of molecular structure and getting a **SMILES string**. The side quest is going beyond classification and seeing if it is possible to have a model learn some basics of chemical connectivity. *I purposefully have NOT looked up any alternatives already out there*.
+
+Steps are as follows, the generator will generate images of molecular structures from supplied list of strings (SMILES) using RDKit in several variations. This will be further modified with other image tools to increase the variability of supplied images. This together with the original SMILES strings will then be the starting point of the training data.
