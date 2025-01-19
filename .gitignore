@@ -172,7 +172,8 @@ cython_debug/
 .pypirc
 
 # loose files
-*.ipynb
+#*.ipynb
+test_*
 *.jpg
 *.png
 *.keras

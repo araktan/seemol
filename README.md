@@ -1,5 +1,9 @@
 I am doing this not because it's easy, but because I thought it would be easy.
 
-The goal of the project is to make **image recognition** for **molecular structures**: i.e. supply an image of molecular structure and getting a **SMILES string**. The side quest is going beyond classification and seeing if it is possible to have a model learn some basics of chemical connectivity. ~~I purposefully have NOT looked up any alternatives already out there~~. All paths lead to Rome - Rome being identifying a network graph from an Image. ML is preferable over algorithms however.
+The goal of the project is to make **image recognition** for **molecular structures**: i.e. supply an image of molecular structure and getting a **SMILES string**. 
 
-Steps are as follows, the generator will generate images of molecular structures from supplied list of strings (SMILES) using RDKit in several variations. This will be further modified with other image tools to increase the variability of supplied images. This together with the original SMILES strings will then be the starting point of the training data.
+The first difficult bit: the challenge appears to be to infer the molecular graph from an image. The most straightforward and least rewarding approach was to try to have a bw-image and produce an adjacency matrix. This would then be input and the target. However adjacency matrices are permutable and are of varying size. Zero padding is a problem since most of the data would be artificialy added zeros.  Variable input data is yet another can of worms.
+
+Now the next bit is managing the layer output dims and using an appropriate sequence of information. Next is identifying ways of encoding a graph in a more consistent way.
+
+Training: Switching to iterables is another thing to do to save on memory. It seems to be possible to run pytorch backend on my gpu however there are some memory issues to debug.
