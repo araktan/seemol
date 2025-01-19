@@ -175,4 +175,7 @@ cython_debug/
 *.ipynb
 *.jpg
 *.png
+*.keras
+*.pkl
+*.jupyterlab-workspace
 
