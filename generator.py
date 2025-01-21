@@ -1,3 +1,4 @@
+import sys
 from rdkit import Chem
 from rdkit.Chem import Draw
 import pandas as pd
@@ -18,9 +19,18 @@ def get_x_y(smiles_string, image_dims=(60, 60)):
     return np.expand_dims(np.array(r), -1), np.expand_dims(padded_adj, -1)
 
 def main():
+    cmd_args = sys.argv
+    if len(cmd_args) > 1:   
+        print('Setting shape: ', cmd_args[1:])
+        output_shape = (int(cmd_args[1]), int(cmd_args[2]))
+    else:
+        print('Default shape: ', [60, 60])
+        output_shape = (60, 60)
+
+
     # generte data
     df = pd.read_csv('data/SMILES.csv')
-    output_shape = (60, 60)
+
     x_data, y_data = [],[]
     for SMILES in df['SMILES']:
         try:
